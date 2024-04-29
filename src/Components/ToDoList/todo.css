@@ -1,0 +1,54 @@
+.todo-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.add-button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter-buttons {
+    margin-top: 10px;
+}
+
+.filter-buttons button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.filter-buttons button.active {
+    background-color: #4caf50;
+    color: white;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.removeItem {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.item {
+    margin: 3px 0px;
+}
+
+.error {
+    color: red;
+}
