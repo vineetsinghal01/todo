@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Todo from "./Todo";
+import Todo from "../Todo";
 
 describe("Todo", () => {
     beforeEach(() => {
