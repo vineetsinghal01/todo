@@ -8,7 +8,7 @@ interface TextInputProps {
 
 const TextInput: React.FC<TextInputProps> = ({
     value = "",
-    handleChange = () => {},
+    handleChange = (f) => f,
     placeholder = "",
 }) => {
     return (

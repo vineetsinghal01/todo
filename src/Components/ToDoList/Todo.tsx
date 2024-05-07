@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./todo.css";
+import "../assets/styles/todo.css";
 import Button from "../Button";
 import Title from "../Title";
 import Error from "../Error";
 import TextInput from "../TextInput";
+import TodoItem from "./TodoItem";
 
 interface TodoItem {
     id: number;
@@ -85,8 +86,9 @@ const Todo: React.FC = () => {
                 Add Todo
             </Button>
             <div className="filter-buttons">
-                {filters.map((filterType: string) => (
+                {filters.map((filterType: string, index: number) => (
                     <Button
+                        key={"filter-" + index}
                         handleClass={filter === filterType ? "active" : ""}
                         handleClick={() => setFilter(filterType)}
                     >
@@ -96,32 +98,13 @@ const Todo: React.FC = () => {
             </div>
             <div>
                 {filteredTodos.length ? (
-                    filteredTodos.map((todo) => (
-                        <div key={todo.id}>
-                            <span
-                                className="removeItem"
-                                onClick={() => {
-                                    handleOnRemove(todo.id);
-                                }}
-                            >
-                                &#x274C;
-                            </span>
-                            <input
-                                type="checkbox"
-                                style={{ verticalAlign: "middle" }}
-                                id={`todo-${todo.id}`}
-                                checked={todo.completed}
-                                onChange={() => handleToggleTodo(todo.id)}
-                            />
-                            <label
-                                htmlFor={`todo-${todo.id}`}
-                                className={`item ${
-                                    todo.completed ? "completed" : ""
-                                }`}
-                            >
-                                {todo.description}
-                            </label>
-                        </div>
+                    filteredTodos.map((todo: any) => (
+                        <TodoItem
+                            key={todo.id}
+                            handleToggleTodo={handleToggleTodo}
+                            handleOnRemove={handleOnRemove}
+                            todo={todo}
+                        />
                     ))
                 ) : (
                     <div>no item</div>
